@@ -61,6 +61,7 @@ public class ExtentManager{
 	//protected static Log log = LogFactory.getLog(ExtentManager.class);
 	protected static Log log = LogFactory.getLog(MethodHandles.lookup().lookupClass().getSimpleName());
 	public static Properties prop=getProperty();
+	public static Properties resourceprop=getResourceProperty();
 	
     static{
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy-hh-mm-ss");
@@ -100,7 +101,7 @@ public class ExtentManager{
                 extent.flush();
                 if(prop.getProperty("openReportInBrowser").equals("Y"))
                 {
-                	 launchReport();
+                	 //launchReport();
                 }
     } 
 	
@@ -110,8 +111,16 @@ public class ExtentManager{
 		return prop;
 	}
 	
+	public static Properties getResourceProperty()
+	{
+		prop=ExcelReader.getPropertyFromExcel("Data","Resources");
+		return prop;
+	}
+	
 	public static void main(String[] args) {
-		launchReport();
+		//launchReport();
+		
+		System.out.println(resourceprop.getProperty("ComplaintRegistration"));
 	}
 	
 	public static void launchReport()
@@ -134,29 +143,13 @@ public class ExtentManager{
 		assertTrue(response.substring(2,4).contains("00"));		
 	}
 	
-	public static String sendReq (String Request, String txnType) throws IOException, SQLException
+	public static String sendReq (String Request, String txnType, String resource) throws IOException, SQLException
 	{
 		log.info("******************************START******************************");
 	    log.info("Request : " + txnType);
-	    BigInteger uniNum = RandomNumGenerator.generate();
-	  	if (prop.getProperty("HMAC").equals("Y"))
-		{
-		  try {
-			Request=Hmac.Hmacing(Request+uniNum, Request, uniNum);
-			log.info("Hmaced Request : "+Request);
-		        } catch (InvalidKeyException | SignatureException | NoSuchAlgorithmException e) {
-			e.printStackTrace();
-			log.error(e);
-		   }
-		}
-		else {
-			Request = Request +";"+uniNum;
-			log.info("Non-Hmac request : "+Request);
-			log.info(" Request");
-		}
+	    //BigInteger uniNum = RandomNumGenerator.generate();
 
-			 HttpConnect obj=new HttpConnect();
-			response = obj.Post(Request, resource);
+			response = HttpConnect.Post(Request, resource);
 			log.info("Response received from Server : "+response);
 /*     	if (response.contains("TXNID"))
 			{

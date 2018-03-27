@@ -4,19 +4,9 @@
 <listeners>
 <listener class-name="mBankingUtilityCenter.AnotationListner"></listener>
 </listeners>
-    <test name = "Non- FInancial transaction">
+    <test name = "Transaction">
       <classes>
-          <class name = "mBankingControlCenter.NonFinancialTransactions"/>
+          <class name = "mBankingControlCenter.Transactions"/>
       </classes>        
     </test>
-    <test name = "FInancial transaction">
-      <classes>
-          <class name="mBankingControlCenter.FinancialTransactions" />
-      </classes>        
-    </test> 
-          <test name = "Payment transaction">
-      <classes>
-          <class name="mBankingControlCenter.PaymentTransactions" />
-      </classes>        
-    </test> 
 </suite>

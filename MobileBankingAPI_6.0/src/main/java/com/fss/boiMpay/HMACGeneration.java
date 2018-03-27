@@ -66,6 +66,7 @@ public static boolean verifyHmacValue(String message, String reqKey){
 
 public static String calculateRFC2104HMAC(String data, String key) {
 
+	System.out.println("key in calculateRFC2104HMAC : "+key);
 	SecretKeySpec signingKey;
 	String result = "";
 	try {
@@ -76,6 +77,7 @@ public static String calculateRFC2104HMAC(String data, String key) {
 	} catch (Exception e) {
 		System.out.println("Exception::"+e);
 	}
+	System.out.println("calculateRFC2104HMAC : "+result);
 	return result;
 
 }

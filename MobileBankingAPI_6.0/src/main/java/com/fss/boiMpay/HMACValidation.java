@@ -44,7 +44,7 @@ public class HMACValidation {
 	private static final String	encryptedFlag	= "3";
 	
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) {/*
 
 		
 		try {
@@ -72,6 +72,9 @@ public class HMACValidation {
 			e.printStackTrace();
 		}
 		
+	*/
+		System.out.println(getClearPin(privateKey, publicKey, encryptedFlag, "LJG4C5DMferXq8cDKp2/f7wxf5xntYMtapw7NJ4peqmI5JwTO9t6C3bkC8dhoGjBbPqa94to31DF/9tYwWQH2iK3KGiT/+8bNPkBkjIDHI51v6uUZvZZptPSavB4vXqZvZ/hzj1vrt5kCxFTVPMHnCYkRS/Ui1Ib93DY85yAj1Q="));
+	
 	}
 	
 public static boolean verifyHMACvalue(String message, String reqKey, String encryptedFlag, String hashedReq){

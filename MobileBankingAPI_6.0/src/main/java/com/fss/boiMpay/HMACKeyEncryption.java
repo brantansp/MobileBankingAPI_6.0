@@ -114,8 +114,10 @@ public class HMACKeyEncryption {
 
 	public static String encryptedKey(String plainKey)
 	{
+		System.out.println("plainKey : "+plainKey);
 	    java.security.Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
        	String finalEncryptedData = new HMACKeyEncryption().encrypt(plainKey , rsapublickeypath);
+       	System.out.println("finalEncryptedData : "+finalEncryptedData.replaceAll("(\\r\\n)", ""));
 		return finalEncryptedData.replaceAll("(\\r\\n)", "");
 	}
 	
@@ -124,7 +126,9 @@ public class HMACKeyEncryption {
 	    Random random = new Random();
 		int x = random.nextInt(9000) + 100;
 	    long millis = System.currentTimeMillis();
-		return millis+x+"";
+	    String timesmillis= String.valueOf(millis);
+	    System.out.println("Plain key : "+timesmillis+x+"");
+		return timesmillis+x+"";
 	}
 	
 	public static void main(String[] args) {
