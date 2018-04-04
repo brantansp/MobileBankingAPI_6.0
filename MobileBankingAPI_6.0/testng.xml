@@ -4,9 +4,49 @@
 <listeners>
 <listener class-name="mBankingUtilityCenter.AnotationListner"></listener>
 </listeners>
-    <test name = "Transaction">
+    <test name = "BillPayments">
       <classes>
-          <class name = "mBankingControlCenter.Transactions"/>
+          <class name = "mBankingControlCenter.BillPayments"/>
+      </classes>        
+    </test>
+    <test name = "Favourites">
+      <classes>
+          <class name = "mBankingControlCenter.Favourites"/>
+      </classes>        
+    </test>
+    <test name = "FundTransfer">
+      <classes>
+          <class name = "mBankingControlCenter.FundTransfer"/>
+      </classes>        
+    </test>
+    <test name = "IMPSTransactions">
+      <classes>
+          <class name = "mBankingControlCenter.IMPSTransactions"/>
+      </classes>        
+    </test>
+    <test name = "Login">
+      <classes>
+          <class name = "mBankingControlCenter.Login"/>
+      </classes>        
+    </test>
+    <test name = "MPassbook">
+      <classes>
+          <class name = "mBankingControlCenter.MPassbook"/>
+      </classes>        
+    </test>
+    <test name = "MyAccounts">
+      <classes>
+          <class name = "mBankingControlCenter.MyAccounts"/>
+      </classes>        
+    </test>
+    <test name = "ServiceAndRequest">
+      <classes>
+          <class name = "mBankingControlCenter.ServiceAndRequest"/>
+      </classes>        
+    </test>
+    <test name = "Settings">
+      <classes>
+          <class name = "mBankingControlCenter.Settings"/>
       </classes>        
     </test>
 </suite>

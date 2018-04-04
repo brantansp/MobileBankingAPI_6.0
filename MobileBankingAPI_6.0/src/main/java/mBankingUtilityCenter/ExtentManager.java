@@ -139,8 +139,9 @@ public class ExtentManager{
 	
 	public static void assertResponse(String response)
 	{
-		//log.info(response.substring(2, 4));
-		assertTrue(response.substring(2,4).contains("00"));		
+		System.out.println("Came Here : " + response);
+		
+		assertTrue(response.substring(response.lastIndexOf("\"rsCode\":\""),response.lastIndexOf("\",\"rsMsg\"")).contains("000"));		
 	}
 	
 	public static String sendReq (String Request, String txnType, String resource) throws IOException, SQLException

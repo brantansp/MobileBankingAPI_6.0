@@ -32,7 +32,7 @@ public class HttpConnect extends ExtentManager {
 	
 	public static void main(String[] args){
 		//String content = "{\"header\":{\"mobNo\":\"+918074581222\",\"mType\":\"req\",\"tType\":\"mid066\",\"bVer\":\"2.1\"},\"body\":{\"txnIdentifier\":\"cumulative\",\"pChk\":\"j1T+WIyITpKDSu5hUtjC1bcJaeEQir7RJ9/BRoQVLs96mJIduAzAHNpTsUQaaEPbq3DKN9p1oeawdW3Ry7MnTfFVqcSOUeF0SrQehOXNiuwqGnRjafjJ+HmOtvG/gSyLw5GeY7tt5xvTvGGpDDzxFWaX9SCwyeY3H7k9NyD8jA4=\",\"acc\":\"0000000000000000\",\"regFlag\":\"R\"},\"footer\":{}}";
-		String content = "{\"header\":{\"mobNo\":\"+918825877640\",\"mType\":\"req\",\"tType\":\"mid025\",\"bVer\":\"2.1\"},\"body\":{\"search\":\"Hyderabad\",\"tpy\":\"all\",\"fromLat\":12.8356597,\"fromLon\":80.2228413},\"footer\":{}}";
+		String content = "{\"header\":{\"mobNo\":\"+918754599508\",\"mType\":\"req\",\"tType\":\"mid025\",\"bVer\":\"2.1\"},\"body\":{\"search\":\"Hyderabad\",\"tpy\":\"all\",\"fromLat\":12.8356597,\"fromLon\":80.2228413},\"footer\":{}}";
 			try {
 				
 				Post(content, "/boi-mobilepay-service-web/mbanking/boi/mob/6.0/en/location/search" );
@@ -47,8 +47,8 @@ public class HttpConnect extends ExtentManager {
 	{
 		URL url = null;
 		
-		// String endpoint = "http://10.44.112.57:8080";
-		       String endpoint = "https://mobileprd.fssnet.co.in:5690";
+		         String endpoint = "http://10.44.112.58:8079";
+		      // String endpoint = "https://mobileprd.fssnet.co.in:5690";
 		       //resource = "/boi-mobilepay-service-web/mbanking/boi/mob/6.0/en/location/search";
 		       String plainKey =HMACKeyEncryption.plainKey();
 		       url = new URL(endpoint+resource);
@@ -61,7 +61,7 @@ public class HttpConnect extends ExtentManager {
 		       urlConn.setRequestProperty("Accept", "application/json, text/plain, */*");
 		       urlConn.setRequestProperty("Accept-Encoding", "gzip, deflate");
 		       urlConn.setRequestProperty("Accept-Language", "en-IN,en-US;q=0.9");
-		       urlConn.setRequestProperty("authToken", "e1ed81eed06c7a82|Android|Coolpad 3600I|||6.0.1|1.0.0.0");
+		       urlConn.setRequestProperty("authToken", "19ffd96b8c6681e2|Android|Moto G Play|||6.0.1|1.0.0.0");
 		       urlConn.setRequestProperty("Connection", "keep-alive");
 		       urlConn.setRequestProperty("Content-Length", "");
 		       urlConn.setRequestProperty("Content-Type", "application/json");
@@ -94,17 +94,15 @@ public class HttpConnect extends ExtentManager {
 		            output.writeBytes(content);
 
 		        /* Get response data.*/
-		        String response = null;
+		        String Response = null;
 		            input = new DataInputStream (urlConn.getInputStream());
 		            while (null != ((response = input.readLine()))) {
-		            System.out.println(response);
-		          
+		            	Response = response;
+		            System.out.println("Httpconect : "+response); 
 		      }
-		            input.close ();
-		            output.flush();
-		            output.close();
+		            System.out.println("Httpconect : "+response); 
 		            
-	        return response;
+	        return Response;
 	    }
 
 }
