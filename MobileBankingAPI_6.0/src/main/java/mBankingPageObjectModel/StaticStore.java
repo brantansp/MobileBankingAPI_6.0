@@ -1,5 +1,9 @@
 package mBankingPageObjectModel;
 
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import mBankingUtilityCenter.ExtentManager;
@@ -12,9 +16,35 @@ public class StaticStore{
 	
 	public static void main(String[] args) 
 	{
-		System.out.println(ComplaintRegistration());
-		
+		//System.out.println(ComplaintRegistration());
+
+		   for (Class<?> c = StaticStore.class; c != null; c = c.getSuperclass()) {
+			      System.out.println(c.getName());          
+			      for (Method method : c.getMethods()) {
+			          System.out.println(  method.getName());
+			          for (Class<?> param: method.getParameterTypes()) {
+			             // System.out.println( param.getName());
+			          }
+			          //System.out.println(  method.getReturnType().getName());
+			      }
+			    } 
 	}
+	
+	public static Method[] getAccessibleMethods(Class clazz) {
+		   List<Method> result = new ArrayList<Method>();
+
+		   while (clazz != null) {
+		      for (Method method : clazz.getDeclaredMethods()) {
+		         int modifiers = method.getModifiers();
+		         if (Modifier.isPublic(modifiers) || Modifier.isProtected(modifiers)) {
+		            result.add(method);
+		         }
+		      }
+		      clazz = clazz.getSuperclass();
+		   }
+
+		   return result.toArray(new Method[result.size()]);
+		}
 	
 	public static String SilentSMS(){
 		

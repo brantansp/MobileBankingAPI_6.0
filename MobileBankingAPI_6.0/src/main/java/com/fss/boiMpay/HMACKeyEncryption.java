@@ -131,10 +131,12 @@ public class HMACKeyEncryption {
 		return timesmillis+x+"";
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) {/*
 	    java.security.Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
        	String finalEncryptedData = new HMACKeyEncryption().encrypt(plainKey(), rsapublickeypath);
 	    System.out.println("finalEncryptedData::"+finalEncryptedData.replaceAll("(\\r\\n)", ""));
+	*/
+	     System.out.println(encryptedKey("0000"));
 	}
 
 	
